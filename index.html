@@ -39,9 +39,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,243,231,.94);backdro
 .hero-grid{position:relative;z-index:1;display:grid;gap:30px;align-items:center}
 .eyebrow{display:inline-block;font-size:.9rem;font-weight:700;letter-spacing:.06em;color:var(--ac);background:rgba(255,255,255,.65);border:1px solid var(--line);padding:5px 14px;border-radius:999px;margin-bottom:16px}
 h1{font-size:clamp(2.1rem,8vw,3.7rem);line-height:1.22;font-weight:700;letter-spacing:-.01em}
-h1 .w{display:inline-block;white-space:nowrap}
-h1 .c{display:inline-block;opacity:0;transform:translateY(.7em) rotate(4deg);animation:pop .7s cubic-bezier(.34,1.56,.64,1) forwards;animation-delay:calc(var(--i)*26ms)}
-@keyframes pop{to{opacity:1;transform:none}}
+h1{animation:fadeUp .8s ease both}
+h1 .grad{background:linear-gradient(92deg,#D6336C,#B4552D);-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .hero-sub{font-size:1.12rem;margin:16px 0 22px;max-width:46ch;color:#5d4636}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
 .catpills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
@@ -97,7 +97,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px}
 footer small{display:block;margin-top:20px;opacity:.7}
 @media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.hero-grid,.split{grid-template-columns:1.1fr 1fr}.brand{font-size:1.1rem}section{padding:80px 0}.hero-frame{padding:54px 48px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}h1 .c{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -115,7 +115,7 @@ footer small{display:block;margin-top:20px;opacity:.7}
       <div class="hero-grid">
         <div>
           <span class="eyebrow">রামগড়ের নিজের দোকান — সোনাইপুল বাজার</span>
-          <h1 id="h1" aria-label="সৌন্দর্য আর উপহারের সবকিছু, এক ঠিকানায়!">সৌন্দর্য আর উপহারের সবকিছু, এক ঠিকানায়!</h1>
+          <h1 id="h1" aria-label="রংবেরং — সাজ আর উপহারের প্রিয় ঠিকানা"><span class="grad">রংবেরং</span> — সাজ আর উপহারের প্রিয় ঠিকানা</h1>
           <p class="hero-sub">কসমেটিকস, জুয়েলারি, গিফট আইটেম আর ফুল — হোম ডেলিভারি রামগড়ে</p>
           <div class="cta">
             <a class="btn wa" href="https://wa.me/8801856109210?text=%E0%A6%86%E0%A6%B8%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%87%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A6%85%E0%A6%B0%E0%A7%8D%E0%A6%A1%E0%A6%BE%E0%A6%B0%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4" target="_blank" rel="noopener">WhatsApp-এ অর্ডার করুন</a>
@@ -206,8 +206,7 @@ footer small{display:block;margin-top:20px;opacity:.7}
 </footer>
 
 <script>
-/* split-text hero (React Bits pattern) */
-(function(){var h=document.getElementById('h1');if(!h||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var i=0;var out=h.textContent.split(' ').map(function(w){var s='<span class="w">'+Array.from(w).map(function(ch){return '<span class="c" style="--i:'+(i++)+'">'+ch+'</span>'}).join('')+'</span>';return s}).join(' ');h.innerHTML=out;})();
+/* (split-text removed: per-character animation breaks Bengali conjunct letters) */
 /* category ticker */
 (function(){var items=['কসমেটিকস','জুয়েলারি','পোশাক','গিফট আইটেম','পার্টি সাজ','হারবাল','ফুল','বাচ্চাদের খেলনা'];var half=items.map(function(t){return '<span>'+t+'</span><b>✦</b>'}).join('');document.getElementById('tickerTrack').innerHTML=half+half;})();
 /* products (from products.json — Decap CMS edits this file) */
